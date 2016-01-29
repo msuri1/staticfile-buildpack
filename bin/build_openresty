@@ -5,7 +5,7 @@
 set -e #halt on any error
 
 pcre_version=8.37
-openresty_version=1.7.10.2
+openresty_version=1.9.7.3
 sudo apt-get update
 sudo apt-get install -fy build-essential zlib1g-dev libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make
 
@@ -29,9 +29,9 @@ sudo make install
 sudo ldconfig # this is important otherwise nginx will compile but fail to load
 
 cd $src
-wget http://openresty.org/download/ngx_openresty-$openresty_version.tar.gz
-tar -xvzf ngx_openresty-$openresty_version.tar.gz
-cd ngx_openresty-$openresty_version
+wget http://openresty.org/download/openresty-$openresty_version.tar.gz
+tar -xvzf openresty-$openresty_version.tar.gz
+cd openresty-$openresty_version
 
 ./configure --prefix=$build  --with-pcre=$src/pcre-$pcre_version --with-http_ssl_module --with-http_gzip_static_module --with-http_stub_status_module
 make
@@ -48,7 +48,7 @@ sudo rm -rf $build/share/man
 # PCRE license is in $build/share/doc/pcre/LICENCE
 # Put Nginx license is in $build/share/doc/nginx
 sudo mkdir -p $build/share/doc/nginx
-sudo cp $src/ngx_openresty-$openresty_version/README.markdown $build/share/doc/nginx
+sudo cp $src/openresty-$openresty_version/README.markdown $build/share/doc/nginx
 
 cd /tmp/
 wget https://raw.githubusercontent.com/bungle/lua-resty-session/master/lib/resty/session.lua --no-check-certificate
