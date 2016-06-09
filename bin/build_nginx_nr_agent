@@ -33,3 +33,4 @@ rm -rf usr/share etc
 mkdir -p $target
 cd $src
 tar -zcvpf $target/nginx-nr-agent.tar.gz .nginx-nr-agent
+md5sum $target/nginx-nr-agent.tar.gz

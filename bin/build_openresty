@@ -5,7 +5,7 @@
 set -e #halt on any error
 
 pcre_version=8.37
-openresty_version=1.9.7.3
+openresty_version=1.9.15.1
 sudo apt-get update
 sudo apt-get install -fy build-essential zlib1g-dev libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make
 
@@ -60,3 +60,4 @@ sudo mv /tmp/session.lua $build/lualib/resty
 mkdir -p $target
 cd /app
 tar -zcvpf $target/openresty-$openresty_version.tar.gz openresty
+md5sum $target/openresty-$openresty_version.tar.gz
