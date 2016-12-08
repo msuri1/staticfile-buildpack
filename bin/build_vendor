@@ -1,6 +1,7 @@
-set -e #halt on any error
+set -exu #halt on any error
+ROOT=$(dirname $0)
 echo "Building Openresty"
-/vagrant/bin/build_openresty
+${ROOT}/build_openresty
 
 echo "Building nginx nr agent"
-/vagrant/bin/build_nginx_nr_agent
+${ROOT}/build_nginx_nr_agent
