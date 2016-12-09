@@ -1,6 +1,7 @@
 #!/bin/bash
 # http://openresty.org/#Installation
 # https://github.com/cloudfoundry-community/nginx-buildpack#building-the-nginx-package
+# Dockerize Build when possible 
 
 set -e #halt on any error
 
